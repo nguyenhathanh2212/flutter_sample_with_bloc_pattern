@@ -74,4 +74,34 @@ Có 3 cách để quản lý state tùy theo mục địch:
 - Scoped Model
 - Redux
 
+*`Bloc`*
+
+`1. Stream`: 
+- Stream controller: Điều khiển stream. https://api.dartlang.org/stable/2.0.0/dart-async/StreamController-class.html
+    - Tạo stream
+    - Gửi data, error, event trên stream.
+    - Kiểm tra sự thay đổi của dữ liệu.
+- Stream Subsciption: Đăng kí các event từ Stream, thông qua đối tượng Stream subscription để nhận thông báo thay đổi trong stream: https://api.dartlang.org/stable/2.0.0/dart-async/StreamSubscription-class.html.
+    - Dừng lắng nghe
+    - pause
+    - resume
+- Stream Transformer: Kiểm soát data trong Stream : https://api.dartlang.org/stable/2.0.0/dart-async/StreamTransformer-class.html
+
+**Phân loại** có 2 loại:
+- Single: chỉ cho phép đăng kí 1 listener trong thời gian tồn tại của nó, Ngay cả khi stream đó đã bị hủy.
+- Boardcast: cho phép đăng kí nhiều listener.
+
+`2. RxDart`:
+- Thư viện giúp quản lý Stream tốt hơn theo chuẩn của ReactiveX(?)
+- Khác biệt so với Stream: 
+    - Stream(stream) <-> Observable<Rxdart>
+    - Stream Controlelr <-> Subject
+
+**Phân loại Subject**
+- Publish Subject, Behavior Subject, ReplaySubject: Đểu giống broadcast Stream Controller, chỉ khắc là trả về Observable thay vì Stream. 
+    - Publish Subject: Gửi sự kiện sau khi đăng kí
+    - Behavior Subject: Gửi sự kiện sau khi đăng kí và thêm sự kiện cuối cùng trước khi đăng kí.
+    - ReplaySubject: gửi tất cả sự kiện mà stream đã phát ra cho đăng kí mới.
+    
+ 
 ## 4. Navigation and routing
